@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💖 Gift For Esraa</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Cairo,sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#0b0f2a,#2a0b3d);
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+}
+
+#hearts{
+position:fixed;
+inset:0;
+overflow:hidden;
+pointer-events:none;
+}
+
+.heart{
+position:absolute;
+color:#ff4d88;
+animation:float linear infinite;
+opacity:.8;
+}
+
+@keyframes float{
+0%{transform:translateY(110vh);opacity:0;}
+20%{opacity:1;}
+100%{transform:translateY(-20vh);opacity:0;}
+}
+
+.box{
+background:rgba(255,255,255,.1);
+backdrop-filter:blur(15px);
+padding:30px;
+border-radius:20px;
+width:90%;
+max-width:420px;
+text-align:center;
+box-shadow:0 0 30px rgba(255,255,255,.2);
+}
+
+input{
+width:100%;
+padding:15px;
+margin-top:15px;
+border:none;
+border-radius:12px;
+text-align:center;
+font-size:18px;
+outline:none;
+}
+
+button{
+width:100%;
+margin-top:15px;
+padding:15px;
+border:none;
+border-radius:12px;
+background:#ff4d88;
+color:white;
+font-size:18px;
+cursor:pointer;
+transition:.3s;
+}
+
+button:active{
+transform:scale(.95);
+}
+
+#error{
+margin-top:15px;
+color:#ffd6e5;
+font-size:16px;
+}
+
+.hidden{display:none;}
+
+#gift{
+text-align:center;
+}
+
+#gift h1{
+margin:10px 0;
+}
+
+#paper{
+margin-top:20px;
+background:#fff8dc;
+color:#222;
+padding:20px;
+border-radius:15px;
+max-height:65vh;
+overflow-y:auto;
+text-align:right;
+line-height:2;
+font-size:18px;
+box-shadow:0 0 25px gold;
+}
+
+#paper::-webkit-scrollbar{
+width:5px;
+}
+
+#paper::-webkit-scrollbar-thumb{
+background:gold;
+border-radius:10px;
+}
+
+#end{
+display:none;
+margin-top:20px;
+font-size:22px;
+color:#ffd700;
+animation:blink 2s infinite;
+}
+
+@keyframes blink{
+50%{opacity:.4;}
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="hearts"></div>
+
+<div class="box" id="login">
+
+<h2>🔐 المفاجأة لشخص واحد فقط</h2>
+
+<input id="pass" placeholder="اكتبي الباسورد">
+
+<button onclick="check()">افتح الهدية 🎁</button>
+
+<div id="error"></div>
+
+</div>
+
+<div id="gift" class="hidden">
+
+<h1>🎁✨ وصلتِ للمفاجأة</h1>
+
+<div id="paper"><div id="text"></div></div>
+
+<div id="end">
+لو خلص الكلام...<br><br>
+فوصف جمالك عمره ما يخلص ❤️
+</div>
+
+</div>
+
+<script>
+
+const message = `
+💖💖💖💖💖💖💖💖💖
+
+إلى من ملك الجمال بين يديه، ❤️  
+إلى قمرٍ ينير الأرض لمن تختلط عليهم الاتجاهات، 🌙  
+وإلى إسراء، 💖  
+لغير الناطقين بلغات الجمال... ✨  
+
+💖💖💖💖💖💖💖💖💖
+
+أخطُّ الحروف أسطري...  
+مع إدراكي وعلمي بأن لا الحروف ولا الأرقام قادرة على إنصافك أو إنصاف حسن جمالك... 💫  
+
+💖💖💖
+
+فإن قلتُ جميلةً كذبت،  
+وإن قلتُ حسناءَ تمادى كذبي... 💔  
+
+💖💖💖
+
+فقد ظننتُ جاهلًا أنني قد أُلبسك عقدًا من الشعر يزين عنقك،  
+وتجاهلتُ حقيقة أن عنقك هو ما سيُزين شعري... ✨  
+
+💖💖💖
+
+فأنا حين أعقد العزم لوصفك وإنصافك،  
+تتمرد الحروف وتأبى الكلمات الاصطفاف على سطور الورق... 🖊️  
+
+💖💖💖
+
+فحسنك قد فاق أعراف العادة،  
+وفضائلك قد تجاوزت أحكام الطبيعة،  
+وما من لغةٍ قد تُفلح في وصف خوارق الجمال... 🌹  
+
+💖💖💖
+
+فأنشد الصمت إن أردتُ إنصافك،  
+وبما أن الصمت لا يُبرز الصمت،  
+كان لا بد أن أتخذ من الحديث منطقًا،  
+ومن الكلمات لغةً... 💭  
+
+💖💖💖
+
+وأتحايل على القواعد والأحكام حتى أتمكن من وصف ما أراه بك... 💌  
+
+فأكتب إليكِ، ومهما كتبتُ،  
+فلن أصف صنع بديع الله في جمالك،  
+ولا سحر عينيك الذي تهيم له القلوب... 💖  
+
+💖💖💖
+
+فأنا أكتب إليكِ بحروفٍ رسالةً تعنيكِ أنتِ فقط،  
+لا هذا ولا ذاك ولا هم ولا هنّ... ✨  
+
+فقاموس لغتي لا يعرف غيرك ولا ينشد سواك... 💞  
+
+💖💖💖
+
+وكلُّ أملي أن تُفلح ذخيرتي اللغوية في وصف بعضٍ من حُسنكِ...  
+
+فعيناكِ أبرزتا جمال وبلاغة لغة الضاد،  
+فحين أكتب إليكِ أنتشي من المعجم ما ينصف جمالك وجمال عينيك... 🌙  
+
+💖💖💖
+
+فأبحث بين الحروف وخلف الكلمات،  
+علّي أجد ما يخاطب الحقيقة،  
+حقيقة أنكِ أعجوبة الأرض والسماء... ✨  
+
+💖💖💖
+
+فأتأمل بالمجاز وأغازل بالتشبيه،  
+وكل أملٍ أن تُفلح كلماتي في الظفر بوصف جمالٍ لا يوصف... 💖  
+
+💖💖💖
+
+فحين تستعصي عليَّ صياغة الكلمات،  
+أتخذ من سحر عينيك مرجعًا،  
+وكأن عينيكِ تمليان عليَّ الألف والياء... 💫  
+
+وتترجم يدي ما تقوله عيناكِ على الورق... 🖊️  
+
+💖💖💖
+
+فأنا كمن درس لغةً وامتهن ترجمتها لمن لا يتحدثها،  
+وإن صحَّ وصفي فأنا تلميذ لعينيكِ وأستاذ في التغزل بجمالك... ❤️  
+
+💖💖💖
+
+ولو صحَّ وصفي الأخير:  
+فإن وصف جمالك عمره ما هيخلص... ♾️  
+
+💖💖💖
+
+أكتفي بأن أقول:  
+إنكِ أجمل من أن تستطيع الكلمات وصفك... 💖✨
+`;
+
+let i=0;
+
+function check(){
+
+let pass=document.getElementById("pass").value;
+
+if(pass==="esraa"){
+
+document.getElementById("login").classList.add("hidden");
+
+document.getElementById("gift").classList.remove("hidden");
+
+start();
+
+}else{
+
+document.getElementById("error").innerHTML="😂 ركزي يا يسوسو 😅❤️";
+
+}
+
+}
+
+function start(){
+
+let area=document.getElementById("text");
+
+let timer=setInterval(()=>{
+
+area.innerHTML+=message.charAt(i);
+
+i++;
+
+if(i>=message.length){
+
+clearInterval(timer);
+
+document.getElementById("end").style.display="block";
+
+}
+
+},40);
+
+}
+
+for(let i=0;i<40;i++){
+
+let h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML="❤️";
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.fontSize=(15+Math.random()*25)+"px";
+
+h.style.animationDuration=(6+Math.random()*6)+"s";
+
+document.getElementById("hearts").appendChild(h);
+
+}
+
+</script>
+
+</body>
+</html>
